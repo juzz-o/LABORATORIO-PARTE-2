@@ -17,5 +17,5 @@ def home(request):
     return render(request, 'home.html', {'searchTerm':searchTerm, 'movies':movies})
     
 def about(request):
-    return render(request, 'about.html',{'name':'Juan Juzzo Giraldo Restrepo'})
+    return render(request, 'about.html',{'name':'Juan Pablo Giraldo Restrepo'})
     
