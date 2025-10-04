@@ -7,5 +7,4 @@ class Movie(models.Model):
     description = models.CharField()
     #image = models.ImageField(upload_to='movies/images/')
     image = models.ImageField(upload_to='movies/images', null=True, blank=True, default='default.jpg')
-
     url = models.URLField(blank=True)

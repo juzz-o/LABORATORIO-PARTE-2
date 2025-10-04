@@ -11,31 +11,33 @@
 <body>
     <h1>Welcome to home page, {{ name }}</h1>
     <h2>this is the full home page</h2>
-    <div class="container">
-        <form action="">
-            <div class="mb-3">
-                <label for="searchMovie" class="form-label">
-                        Search for Movie:
-                </label>
-                <input type="text" class="form-control" name="searchMovie"/>
+<div class="container">
+    <form action="">
+        <div class="mb-3">
+            <label for="searchMovie" class="form-label">
+                Search for Movie:
+            </label>
+            <input type="text" class="form-control" name="searchMovie"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <p>Searching for {{searchTerm}}</p>
+    <div class='row row-cols-1 row-cols-md-3 g-4'>
+        {% for movie in movies %}
+        <div v-for="movie in movies" class="col">
+            <div class="card">
+            <img src="{{ movie.image.url }}" class="card-img-top" alt="{{ movie.title }}">
+            <div class="card-body">
+                <h5 class="card-title fw-bold">{{ movie.title }}</h5>
+                <p class="card-text">{{ movie.description }}</p>
+                {% if movie.url %}
+                    <a href="{{ movie.url }}" class="btn btn-primary">Movie Link</a>
+                {% endif %}
             </div>
-            <button type="submit" class="btn btn-primary">Search</button>
-        </form>
-        <p>Searching for {{searchTerm}}</p>
-            {% for movie in movies %}
-            <div class="card" style="width: 18rem;margin: 10px; display:inline-block;">
-                <img src="{{ movie.image.url }}" class="card-img-top" alt="{{ movie.title }}">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                    {% if movie.url %}
-                        <a href="{{ movie.url }}" class="btn btn-primary">Movie Link</a>
-                    {% endif %}
-                </div>
-            </div>
-            {% endfor %}
-        <br/>
-    </div>
+        </div>   
+    </div> 
+        {% endfor %}
+</div>
 
  
 </body>
