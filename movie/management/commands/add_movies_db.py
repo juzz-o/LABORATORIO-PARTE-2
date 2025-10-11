@@ -23,7 +23,7 @@ class Command(BaseCommand):
             if not exist:
                 Movie.objects.create(
                     title=movie.get('title', 'Untitled'),
-                    image='movie/images/default.jpg',
+                    image='movies/images/default2.jpg',
                     genre=movie.get('genre', 'Unknown'),
                     year=movie.get('year', None),
                     description=movie.get('plot', 'No description available.')
